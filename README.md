@@ -1,7 +1,7 @@
 # resz playground
 
-![Version](https://img.shields.io/badge/version-1.0.1-blue)
-![resz](https://img.shields.io/badge/resz-1.0.1-green)
+![Version](https://img.shields.io/badge/version-1.0.2-blue)
+![resz](https://img.shields.io/badge/resz-1.0.2-green)
 
 A visual playground for [resz](https://github.com/mehdibouakkadia/resz) — spring-based resizing for React.
 
@@ -27,7 +27,7 @@ Interactive environment to experiment with spring physics, constraints, and hand
 - Tailwind CSS
 - shadcn/ui
 - Framer Motion
-- resz 1.0.1
+- resz 1.0.2
 
 ---
 

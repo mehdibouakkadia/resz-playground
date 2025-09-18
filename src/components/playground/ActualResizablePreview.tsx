@@ -89,10 +89,6 @@ export function ActualResizablePreview({ state, onResize }: ActualResizablePrevi
       resizeProps.constraints = state.constraints;
     }
 
-    // Add snap if it exists
-    if (state.snap) {
-      resizeProps.snap = state.snap;
-    }
 
     return (
       <div className="flex-1 flex items-center justify-center bg-gray-50 border-2 border-dashed border-gray-200 rounded-lg min-h-[400px]">

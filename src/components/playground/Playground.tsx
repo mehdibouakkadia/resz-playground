@@ -393,51 +393,6 @@ export function Playground() {
                   </div>
                 </div>
 
-                {/* Snap to Grid */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <label className="text-xs text-gray-600">Snap to Grid</label>
-                    <div className="flex items-center gap-2">
-                      <Switch
-                        checked={!!state.snap}
-                        onCheckedChange={(checked) => updateState({ 
-                          snap: checked ? { increment: 10 } : undefined 
-                        })}
-                      />
-                      <span className="text-xs text-gray-500">Enable</span>
-                    </div>
-                  </div>
-                  
-                  <div className={`space-y-1 ${!state.snap ? 'opacity-50' : ''}`}>
-                    <label className="text-xs text-gray-600">Grid Size</label>
-                    <div className="flex items-center gap-1">
-                      <input
-                        type="number"
-                        min="1"
-                        max="200"
-                        value={state.snap?.increment || 10}
-                        onChange={(e) => {
-                          const value = parseInt(e.target.value);
-                          if (!isNaN(value) && value > 0 && state.snap) {
-                            updateState({ 
-                              snap: { 
-                                increment: value 
-                              }
-                            });
-                          }
-                        }}
-                        disabled={!state.snap}
-                        className="flex-1 h-8 px-2 text-xs border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-gray-50"
-                      />
-                      <span className="text-xs text-gray-400">px</span>
-                    </div>
-                    {state.snap && (
-                      <div className="text-xs text-gray-500 italic">
-                        Resize will snap to {state.snap.increment}px increments
-                      </div>
-                    )}
-                  </div>
-                </div>
 
               </div>
             </Card>

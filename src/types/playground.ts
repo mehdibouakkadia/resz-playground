@@ -40,11 +40,6 @@ export interface PlaygroundState {
   useMaxConstraints: boolean;
   useAspectRatio: boolean;
   
-  // Snap
-  snap?: {
-    increment: number;
-  };
-  
   // Custom handle code
   customHandleCode?: string;
   useCustomHandles: boolean;

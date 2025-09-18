@@ -19,7 +19,6 @@ const initialState: PlaygroundState = {
   useMinConstraints: false,
   useMaxConstraints: false,
   useAspectRatio: false,
-  snap: undefined,
   customHandleCode: '',
   useCustomHandles: false,
   workspaceMode: 'visual'

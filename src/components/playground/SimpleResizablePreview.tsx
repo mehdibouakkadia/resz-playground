@@ -70,11 +70,6 @@ export function SimpleResizablePreview({ state, onResize }: SimpleResizablePrevi
         <div className="text-xs text-gray-500">
           Ratio: {state.useAspectRatio ? getRatioLabel(state.constraints.aspectRatio || 1.33) : 'Free'}
         </div>
-        {state.snap && (
-          <div className="text-xs text-gray-500">
-            Snap: {state.snap.increment}px grid
-          </div>
-        )}
       </div>
 
       {/* Simple container - no extra divs that interfere with handles */}
@@ -82,7 +77,7 @@ export function SimpleResizablePreview({ state, onResize }: SimpleResizablePrevi
         {/* For code editor, render nested resizable layout */}
         {state.panelType === 'toolbar' ? (
           <Resize 
-            key={`${state.useMinConstraints}-${state.useMaxConstraints}-${state.useAspectRatio}-${JSON.stringify(state.constraints)}-${JSON.stringify(state.snap)}-toolbar`}
+            key={`${state.useMinConstraints}-${state.useMaxConstraints}-${state.useAspectRatio}-${JSON.stringify(state.constraints)}-toolbar`}
             preset={state.preset !== 'custom' ? state.preset : undefined}
             config={state.preset === 'custom' ? state.springConfig : undefined}
             initialWidth={currentSize.width}
@@ -92,7 +87,6 @@ export function SimpleResizablePreview({ state, onResize }: SimpleResizablePrevi
               max: state.useMaxConstraints ? state.constraints.max : undefined,
               aspectRatio: state.useAspectRatio ? state.constraints.aspectRatio : undefined
             }}
-            snap={state.snap}
             onResize={handleResize}
           >
             <Resize.Panel>
@@ -184,7 +178,7 @@ export function SimpleResizablePreview({ state, onResize }: SimpleResizablePrevi
         ) : (
           /* All other panel types use the single resizable component */
           <Resize 
-            key={`${state.useMinConstraints}-${state.useMaxConstraints}-${state.useAspectRatio}-${JSON.stringify(state.constraints)}-${JSON.stringify(state.snap)}`}
+            key={`${state.useMinConstraints}-${state.useMaxConstraints}-${state.useAspectRatio}-${JSON.stringify(state.constraints)}`}
             preset={state.preset !== 'custom' ? state.preset : undefined}
             config={state.preset === 'custom' ? state.springConfig : undefined}
             initialWidth={currentSize.width}
@@ -194,7 +188,6 @@ export function SimpleResizablePreview({ state, onResize }: SimpleResizablePrevi
               max: state.useMaxConstraints ? state.constraints.max : undefined,
               aspectRatio: state.useAspectRatio ? state.constraints.aspectRatio : undefined
             }}
-            snap={state.snap}
             onResize={handleResize}
           >
           <Resize.Panel>

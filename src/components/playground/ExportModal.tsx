@@ -120,11 +120,6 @@ export function ExportModal({ open, onOpenChange, state }: ExportModalProps) {
       props.push(`preset="${state.preset}"`);
     }
     
-    // Snap configuration
-    if (state.snap) {
-      props.push(`snap={${state.snap.increment}}`);
-    }
-    
     // Add constraints if any are set
     const constraints = [];
     if (state.useMinConstraints && state.constraints.min) {

@@ -14,8 +14,6 @@ declare module 'resz' {
       max?: { width?: number; height?: number };
       aspectRatio?: number;
     };
-    snapIncrement?: number;
-    snap?: { increment?: number };
     initialWidth?: number;
     initialHeight?: number;
     onResize?: (data: { width: number; height: number; isDragging: boolean }) => void;

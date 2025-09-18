@@ -8,7 +8,7 @@ interface ResizablePreviewProps {
   onResize?: (width: number, height: number, isDragging: boolean) => void;
 }
 
-export function ResizablePreview({ state, onResize }: ResizablePreviewProps) {
+export function ResizablePreview({ state }: ResizablePreviewProps) {
   const panelStyle = PANEL_STYLES[state.panelType];
   
   // For now, we'll create a mock resizable component until we can properly integrate resz

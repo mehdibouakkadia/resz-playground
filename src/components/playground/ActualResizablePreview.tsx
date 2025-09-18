@@ -9,7 +9,7 @@ interface ActualResizablePreviewProps {
 }
 
 export function ActualResizablePreview({ state, onResize }: ActualResizablePreviewProps) {
-  const [ResizeComponent, setResizeComponent] = useState<any>(null);
+  const [ResizeComponent, setResizeComponent] = useState<React.ComponentType<any> | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [currentSize, setCurrentSize] = useState({ 
@@ -26,7 +26,7 @@ export function ActualResizablePreview({ state, onResize }: ActualResizablePrevi
         const { Resize } = await import('resz');
         setResizeComponent(() => Resize);
         setIsLoading(false);
-      } catch (error) {
+      } catch {
         // Failed to load resz library
         setLoadError('Failed to load resz library. Using mock preview instead.');
         setResizeComponent(null);
@@ -56,7 +56,7 @@ export function ActualResizablePreview({ state, onResize }: ActualResizablePrevi
 
   // If resz library loaded successfully, use it
   if (ResizeComponent) {
-    const resizeProps: any = {
+    const resizeProps: Record<string, any> = {
       initialWidth: state.initialWidth,
       initialHeight: state.initialHeight,
       onResize: handleResize,

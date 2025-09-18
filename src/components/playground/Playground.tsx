@@ -2,27 +2,27 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Code, Eye, Download, RotateCcw } from 'lucide-react';
+import { Download, RotateCcw } from 'lucide-react';
 
 import { usePlaygroundState } from '@/hooks/usePlaygroundState';
 import { SimpleResizablePreview } from './SimpleResizablePreview';
 
-function getRatioLabel(ratio: number): string {
-  const ratios: Record<string, string> = {
-    '1': '1:1',
-    '1.33': '4:3', 
-    '1.5': '3:2',
-    '1.78': '16:9',
-    '2': '2:1',
-    '0.75': '3:4',
-    '0.56': '9:16'
-  };
-  return ratios[ratio.toString()] || ratio.toFixed(2);
-}
+// function getRatioLabel(ratio: number): string {
+//   const ratios: Record<string, string> = {
+//     '1': '1:1',
+//     '1.33': '4:3', 
+//     '1.5': '3:2',
+//     '1.78': '16:9',
+//     '2': '2:1',
+//     '0.75': '3:4',
+//     '0.56': '9:16'
+//   };
+//   return ratios[ratio.toString()] || ratio.toFixed(2);
+// }
 // import { PanelTypeSelector } from './PanelTypeSelector'; // Temporarily disabled
 import { SpringControls } from './SpringControls';
 import { HandleControls } from './HandleControls';

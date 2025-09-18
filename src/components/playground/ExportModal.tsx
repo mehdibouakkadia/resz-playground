@@ -33,7 +33,6 @@ export function ExportModal({ open, onOpenChange, state }: ExportModalProps) {
   // Highlight a single line with black/grey colors
   const highlightLine = (line: string) => {
     const tokens: React.ReactNode[] = [];
-    let lastIndex = 0;
 
     // Patterns for black (prominent) elements
     const blackPatterns = [
@@ -188,7 +187,7 @@ ${handleElements ? '\n' + handleElements : ''}
       await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
+    } catch {
       // Failed to copy to clipboard
     }
   };

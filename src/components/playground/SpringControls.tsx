@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
-import { SpringPreset, SpringConfig, SPRING_PRESETS } from '@/types/playground';
+import { SpringPreset, SpringConfig } from '@/types/playground';
 
 interface SpringControlsProps {
   preset: SpringPreset | 'custom';

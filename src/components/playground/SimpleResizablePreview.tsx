@@ -45,7 +45,7 @@ export function SimpleResizablePreview({ state, onResize }: SimpleResizablePrevi
   // doesn't support programmatic resizing. Users need to manually adjust the panel
   // after changing constraints. This is acceptable UX for now.
 
-  const handleResize = (resizeData: any) => {
+  const handleResize = (resizeData: { width: number; height: number; isDragging: boolean }) => {
     // The resz library passes a single object with width, height, and isDragging
     const { width, height, isDragging } = resizeData;
     

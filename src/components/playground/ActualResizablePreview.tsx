@@ -9,6 +9,7 @@ interface ActualResizablePreviewProps {
 }
 
 export function ActualResizablePreview({ state, onResize }: ActualResizablePreviewProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [ResizeComponent, setResizeComponent] = useState<React.ComponentType<any> | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -56,6 +57,7 @@ export function ActualResizablePreview({ state, onResize }: ActualResizablePrevi
 
   // If resz library loaded successfully, use it
   if (ResizeComponent) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const resizeProps: Record<string, any> = {
       initialWidth: state.initialWidth,
       initialHeight: state.initialHeight,

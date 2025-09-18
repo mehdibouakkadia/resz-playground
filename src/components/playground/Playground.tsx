@@ -215,6 +215,16 @@ export function Playground() {
                   <div className="flex items-center justify-between">
                     <label className="text-xs text-gray-600">Minimum Size</label>
                     <div className="flex items-center gap-2">
+                      {(hasMinWidthChanges || hasMinHeightChanges) && state.useMinConstraints && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={applyConstraints}
+                          className="h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
+                        >
+                          Apply
+                        </Button>
+                      )}
                       <Switch
                         checked={state.useMinConstraints}
                         onCheckedChange={(checked) => updateState({ useMinConstraints: checked })}
@@ -233,21 +243,10 @@ export function Playground() {
                             ...prev, 
                             minWidth: e.target.value === '' ? '' : (parseInt(e.target.value) || 0)
                           }))}
-                          className="w-full px-2 py-1 pr-12 text-xs border border-gray-200 rounded"
+                          className="w-full px-2 py-1 text-xs border border-gray-200 rounded"
                           disabled={!state.useMinConstraints}
                           placeholder="100"
                         />
-                        {hasMinWidthChanges && (
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={applyConstraints}
-                            className="absolute right-1 top-1/2 -translate-y-1/2 h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
-                            disabled={!state.useMinConstraints}
-                          >
-                            Apply
-                          </Button>
-                        )}
                       </div>
                       <span className="text-xs text-gray-400">px</span>
                     </div>
@@ -261,21 +260,10 @@ export function Playground() {
                             ...prev, 
                             minHeight: e.target.value === '' ? '' : (parseInt(e.target.value) || 0)
                           }))}
-                          className="w-full px-2 py-1 pr-12 text-xs border border-gray-200 rounded"
+                          className="w-full px-2 py-1 text-xs border border-gray-200 rounded"
                           disabled={!state.useMinConstraints}
                           placeholder="100"
                         />
-                        {hasMinHeightChanges && (
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={applyConstraints}
-                            className="absolute right-1 top-1/2 -translate-y-1/2 h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
-                            disabled={!state.useMinConstraints}
-                          >
-                            Apply
-                          </Button>
-                        )}
                       </div>
                       <span className="text-xs text-gray-400">px</span>
                     </div>
@@ -287,6 +275,16 @@ export function Playground() {
                   <div className="flex items-center justify-between">
                     <label className="text-xs text-gray-600">Maximum Size</label>
                     <div className="flex items-center gap-2">
+                      {(hasMaxWidthChanges || hasMaxHeightChanges) && state.useMaxConstraints && (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={applyConstraints}
+                          className="h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
+                        >
+                          Apply
+                        </Button>
+                      )}
                       <Switch
                         checked={state.useMaxConstraints}
                         onCheckedChange={(checked) => updateState({ useMaxConstraints: checked })}
@@ -305,21 +303,10 @@ export function Playground() {
                             ...prev, 
                             maxWidth: e.target.value === '' ? '' : (parseInt(e.target.value) || 0)
                           }))}
-                          className="w-full px-2 py-1 pr-12 text-xs border border-gray-200 rounded"
+                          className="w-full px-2 py-1 text-xs border border-gray-200 rounded"
                           disabled={!state.useMaxConstraints}
                           placeholder="800"
                         />
-                        {hasMaxWidthChanges && (
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={applyConstraints}
-                            className="absolute right-1 top-1/2 -translate-y-1/2 h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
-                            disabled={!state.useMaxConstraints}
-                          >
-                            Apply
-                          </Button>
-                        )}
                       </div>
                       <span className="text-xs text-gray-400">px</span>
                     </div>
@@ -333,21 +320,10 @@ export function Playground() {
                             ...prev, 
                             maxHeight: e.target.value === '' ? '' : (parseInt(e.target.value) || 0)
                           }))}
-                          className="w-full px-2 py-1 pr-12 text-xs border border-gray-200 rounded"
+                          className="w-full px-2 py-1 text-xs border border-gray-200 rounded"
                           disabled={!state.useMaxConstraints}
                           placeholder="600"
                         />
-                        {hasMaxHeightChanges && (
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={applyConstraints}
-                            className="absolute right-1 top-1/2 -translate-y-1/2 h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
-                            disabled={!state.useMaxConstraints}
-                          >
-                            Apply
-                          </Button>
-                        )}
                       </div>
                       <span className="text-xs text-gray-400">px</span>
                     </div>

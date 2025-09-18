@@ -8,9 +8,16 @@ interface ActualResizablePreviewProps {
   onResize?: (width: number, height: number, isDragging: boolean) => void;
 }
 
+// Define a type for the Resize component from resz library
+interface ResizeComponentType {
+  (props: any): React.ReactElement;
+  Panel: React.ComponentType<any>;
+  Handle: React.ComponentType<{ dir: string }>;
+}
+
 export function ActualResizablePreview({ state, onResize }: ActualResizablePreviewProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [ResizeComponent, setResizeComponent] = useState<React.ComponentType<any> | null>(null);
+  const [ResizeComponent, setResizeComponent] = useState<ResizeComponentType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [currentSize, setCurrentSize] = useState({ 
@@ -25,7 +32,7 @@ export function ActualResizablePreview({ state, onResize }: ActualResizablePrevi
     const loadResize = async () => {
       try {
         const { Resize } = await import('resz');
-        setResizeComponent(() => Resize);
+        setResizeComponent(() => Resize as ResizeComponentType);
         setIsLoading(false);
       } catch {
         // Failed to load resz library

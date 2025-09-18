@@ -58,6 +58,8 @@ export function Playground() {
   const hasMinHeightChanges = pendingConstraints.minHeight !== (state.constraints.min?.height || 100);
   const hasMaxWidthChanges = pendingConstraints.maxWidth !== (state.constraints.max?.width || 800);
   const hasMaxHeightChanges = pendingConstraints.maxHeight !== (state.constraints.max?.height || 600);
+  
+  const hasAnyConstraintChanges = hasMinWidthChanges || hasMinHeightChanges || hasMaxWidthChanges || hasMaxHeightChanges;
 
   const applyConstraints = () => {
     const newConstraints = {
@@ -208,23 +210,25 @@ export function Playground() {
             {/* Size Constraints */}
             <Card className="p-4">
               <div className="space-y-4">
-                <div className="text-sm font-medium">Size Constraints</div>
+                <div className="flex items-center justify-between">
+                  <div className="text-sm font-medium">Size Constraints</div>
+                  {hasAnyConstraintChanges && (
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={applyConstraints}
+                      className="h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
+                    >
+                      Apply
+                    </Button>
+                  )}
+                </div>
                 
                 {/* Min Size */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-xs text-gray-600">Minimum Size</label>
                     <div className="flex items-center gap-2">
-                      {(hasMinWidthChanges || hasMinHeightChanges) && state.useMinConstraints && (
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={applyConstraints}
-                          className="h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
-                        >
-                          Apply
-                        </Button>
-                      )}
                       <Switch
                         checked={state.useMinConstraints}
                         onCheckedChange={(checked) => updateState({ useMinConstraints: checked })}
@@ -275,16 +279,6 @@ export function Playground() {
                   <div className="flex items-center justify-between">
                     <label className="text-xs text-gray-600">Maximum Size</label>
                     <div className="flex items-center gap-2">
-                      {(hasMaxWidthChanges || hasMaxHeightChanges) && state.useMaxConstraints && (
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={applyConstraints}
-                          className="h-5 px-2 text-xs text-gray-600 hover:text-gray-700"
-                        >
-                          Apply
-                        </Button>
-                      )}
                       <Switch
                         checked={state.useMaxConstraints}
                         onCheckedChange={(checked) => updateState({ useMaxConstraints: checked })}

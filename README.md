@@ -5,7 +5,7 @@
 
 A visual playground for [resz](https://github.com/mehdibouakkadia/resz) — spring-based resizing for React.
 
-[**Try it live →**](https://resz-playground.vercel.app/)
+[**Try it live →**](https://resz.mehdib.me/)
 
 ## What
 

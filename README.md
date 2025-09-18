@@ -1,8 +1,11 @@
 # resz playground
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![resz](https://img.shields.io/badge/resz-1.0.0-green)
+
 A visual playground for [resz](https://github.com/mehdibouakkadia/resz) — spring-based resizing for React.
 
-[**Try it live →**](https://resz-playground.vercel.app)
+[**Try it live →**](https://resz-playground.vercel.app/)
 
 ## What
 
@@ -16,24 +19,15 @@ Interactive environment to experiment with spring physics, constraints, and hand
 - **Constraints** — Min/max sizes, aspect ratios
 - **Export code** — Copy complete React components
 
-## Run locally
-
-```bash
-git clone https://github.com/mehdibouakkadia/resz-playground
-cd resz-playground
-npm install
-npm run dev
-```
-
-Open [localhost:3000](http://localhost:3000)
 
 ## Stack
 
-- Next.js 14
+- Next.js 15
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
 - Framer Motion
+- resz 1.0.0
 
 ---
 

@@ -10,13 +10,14 @@ interface ActualResizablePreviewProps {
 
 // Define a type for the Resize component from resz library
 interface ResizeComponentType {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (props: any): React.ReactElement;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Panel: React.ComponentType<any>;
   Handle: React.ComponentType<{ dir: string }>;
 }
 
 export function ActualResizablePreview({ state, onResize }: ActualResizablePreviewProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [ResizeComponent, setResizeComponent] = useState<ResizeComponentType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);

@@ -6,14 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Copy, Check } from 'lucide-react';
 import { PlaygroundState } from '@/types/playground';
 
-declare global {
-  interface Window {
-    fathom?: {
-      trackEvent: (name: string) => void;
-    };
-  }
-}
-
 interface ExportModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -188,7 +180,8 @@ ${handleElements ? '\n' + handleElements : ''}
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(code);
-      window.fathom?.trackEvent('click_copy_code');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).fathom?.trackEvent('click_copy_code');
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {

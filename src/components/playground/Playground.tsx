@@ -8,14 +8,6 @@ import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Download, RotateCcw } from 'lucide-react';
 
-declare global {
-  interface Window {
-    fathom?: {
-      trackEvent: (name: string) => void;
-    };
-  }
-}
-
 import { usePlaygroundState } from '@/hooks/usePlaygroundState';
 import { SimpleResizablePreview } from './SimpleResizablePreview';
 
@@ -115,7 +107,8 @@ export function Playground() {
               variant="default"
               size="sm"
               onClick={() => {
-                window.fathom?.trackEvent('click_export');
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (window as any).fathom?.trackEvent('click_export');
                 setExportModalOpen(true);
               }}
               className="gap-2"

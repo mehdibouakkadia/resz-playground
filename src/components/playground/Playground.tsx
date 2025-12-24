@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Download, RotateCcw } from 'lucide-react';
+import * as Fathom from 'fathom-client';
 
 import { usePlaygroundState } from '@/hooks/usePlaygroundState';
 import { SimpleResizablePreview } from './SimpleResizablePreview';
@@ -106,7 +107,10 @@ export function Playground() {
             <Button
               variant="default"
               size="sm"
-              onClick={() => setExportModalOpen(true)}
+              onClick={() => {
+                Fathom.trackEvent('click_export');
+                setExportModalOpen(true);
+              }}
               className="gap-2"
             >
               <Download className="h-4 w-4" />

@@ -4,8 +4,15 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Copy, Check } from 'lucide-react';
-import * as Fathom from 'fathom-client';
 import { PlaygroundState } from '@/types/playground';
+
+declare global {
+  interface Window {
+    fathom?: {
+      trackEvent: (name: string) => void;
+    };
+  }
+}
 
 interface ExportModalProps {
   open: boolean;
@@ -181,7 +188,7 @@ ${handleElements ? '\n' + handleElements : ''}
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(code);
-      Fathom.trackEvent('click_copy_code');
+      window.fathom?.trackEvent('click_copy_code');
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
